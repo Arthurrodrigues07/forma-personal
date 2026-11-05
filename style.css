@@ -141,8 +141,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .plan-toggle{display:inline-flex;gap:5px;margin-bottom:35px;padding:5px;border:1px solid #cfd4cb}
 .plan-toggle-button{padding:15px 24px;border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;transition:background .3s,color .3s}
 .plan-toggle-button.active{background:var(--dark);color:white}
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-.plan-card{position:relative;display:flex;flex-direction:column;min-height:475px;padding:45px 35px;background:var(--surface);color:var(--dark)}
+.plans-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.plan-card{min-width:0;position:relative;display:flex;flex-direction:column;min-height:475px;padding:45px 35px;background:var(--surface);color:var(--dark)}
 .plan-featured{background:var(--dark);color:white}
 .plan-badge{position:absolute;top:0;right:0;padding:12px 15px;background:var(--gold);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:.1em}
 .plan-index{font-size:9px;font-weight:700;letter-spacing:.17em;color:#9b835f}
@@ -347,3 +347,6 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
 .js-ready .reveal{opacity:1;transform:none}
 }
+
+/* Evita cartões comprimidos nas larguras intermediárias. */
+@media(min-width:751px) and (max-width:1000px){.plans-grid{grid-template-columns:1fr}.plan-card{min-height:0}.plan-card>p{min-height:0}}
